@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Web site created using create-react-app">
+  <title>React App</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://federicozacayan.github.io/tutorial/css/prism.css" rel="stylesheet">
+<style>textarea {
+  width: 100%;
+  margin: .5rem auto; }
+
+.buttons button {
+  cursor: pointer;
+  background-color: #00b7ff;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: 1rem;
+  color: white;
+  text-transform: capitalize;
+  display: inline-block;
+  width: auto; }
+
+button {
+  width: 50%; }
+
+.styler {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1rem; }
+  .styler .background {
+    position: fixed;
+    background-color: #000;
+    opacity: .5;
+    height: 200px;
+    top: 0;
+    margin-left: -1rem;
+    float: left;
+    width: 100%;
+    z-index: -1;
+    height: 100vh; }
+</style></head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"><div class="container"><div><div><h1>Angular 101</h1><p>NOTE: This is a review of ANGULAR, we do not care about DESIGN.</p><h2>How to start a project?</h2><pre class="  language-css"><code class="  language-css">npm install -g @angular/cli
+</code></pre><p>In my case, /usr/bin/ng file already exists in my system for some reason. I just made a back up of that and deleted it.</p><pre class="  language-html"><code class="  language-html">sudo cp /usr/bin/ng /usr/bin/ng.bk
+sudo rm /usr/bin/ng
+npm install -g @angular/cli</code></pre><p>Create a project</p><pre class="  language-html"><code class="  language-html">ng new angular-tutorial</code></pre><p>Say "no routing"</p><pre class="  language-html"><code class="  language-html">Would you like to add Angular routing? (y/N)</code></pre><p>Choose "CSS"</p><pre class="  language-css"><code class="  language-css">  CSS
+❯ SCSS   [ <span class="token property">https</span><span class="token punctuation">:</span>//sass-lang.com/documentation/syntax#scss                ]
+  Sass   [ <span class="token property">https</span><span class="token punctuation">:</span>//sass-lang.com/documentation/syntax#the-indented-syntax ]
+  Less   [ <span class="token property">http</span><span class="token punctuation">:</span>//lesscss.org                                             ]
+  Stylus [ <span class="token property">http</span><span class="token punctuation">:</span>//stylus-lang.com                                         ] </code></pre><p>cd angular-tutorial</p><pre class="  language-javascript"><code class="  language-javascript">ng serve <span class="token operator">--</span>open <span class="token comment">//  ng serve -o</span></code></pre><h2>Delete extra files</h2><p>Delete everything except the following files:</p><pre class="  language-css"><code class="  language-css">node_modules/
+src/app/app.component.html
+src/app/app.component.scss
+src/app/app.component.ts
+src/app/app.module.ts
+
+src/index.html
+src/main.ts
+src/polyfills.ts
+src/styles.scss
+
+.gitignore
+angular.json
+package-lock.json
+package.json
+tsconfig.app.json
+tsconfig.json</code></pre><h2>Simplify some files</h2><pre class="  language-css"><code class="  language-css"><span class="token comment">/* src/main.ts */</span>
+<span class="token selector">import</span> <span class="token punctuation">{</span> platformBrowserDynamic <span class="token punctuation">}</span> from <span class="token string">'@angular/platform-browser-dynamic'</span><span class="token punctuation">;</span>
+<span class="token selector">import</span> <span class="token punctuation">{</span> AppModule <span class="token punctuation">}</span> from <span class="token string">'./app/app.module'</span><span class="token punctuation">;</span> 
+<span class="token function">platformBrowserDynamic</span><span class="token punctuation">(</span><span class="token punctuation">)</span>.<span class="token function">bootstrapModule</span><span class="token punctuation">(</span>AppModule<span class="token punctuation">)</span>
+  .<span class="token function">catch</span><span class="token punctuation">(</span>err =&gt; console.<span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><pre class="  language-html"><code class="  language-html"><span class="token comment">&lt;!-- /* index.html */ --&gt;</span>
+<span class="token doctype">&lt;!doctype html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>App1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>app-root</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>app-root</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre><pre class="  language-css"><code class="  language-css"><span class="token comment">/* src/app/app.component.scss */</span>
+<span class="token selector">div</span><span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span>red
+<span class="token punctuation">}</span></code></pre><pre class="  language-html"><code class="  language-html"><span class="token comment">&lt;!-- /* src/app/app.component.scss */ --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>hello world!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre></div><div class="styler" style="display: none;"><div class="background"></div><textarea style="margin-top: 7.99716px; margin-bottom: 7.99716px; height: 300px;">How to start a project?</textarea><br><button>Duplicate</button><button>Delete</button><br><div class="buttons"><button>h1 </button><button>h2 </button><button>p </button><button>html </button><button>css </button><button>javascript </button></div><label for="up" class="btn btn-primary btn-block btn-outlined">Upload Json</label><input id="up" type="file" accept="text/plain" style="display: none;"><label for="down" class="btn btn-primary btn-block btn-outlined">Download Json</label><button id="down" style="display: none;">Export</button><label for="html" class="btn btn-primary btn-block btn-outlined">Download HTML</label><button id="html" style="display: none;">Export</button></div></div></div></div>
+<script src="/static/js/bundle.js"></script><script src="/static/js/0.chunk.js"></script><script src="/static/js/main.chunk.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script src="https://federicozacayan.github.io/tutorial/js/prism.js"></script>
+
+
+</body></html>
